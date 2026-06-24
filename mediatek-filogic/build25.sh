@@ -11,7 +11,7 @@ else
 
   # 拷贝 run/arm64 下所有 run 文件和apk文件 到 extra-packages 目录
   mkdir -p /home/build/immortalwrt/extra-packages
-  cp -r /tmp/store-apk-repo/run/arm64/* /home/build/immortalwrt/extra-packages/
+  cp -r /tmp/store-apk-repo/run/arm64-a53/* /home/build/immortalwrt/extra-packages/
 
   echo "✅ Run files copied to extra-packages:"
   # 解压并拷贝apk到packages目录
@@ -55,6 +55,8 @@ PACKAGES="$PACKAGES luci-i18n-ttyd-zh-cn"
 PACKAGES="$PACKAGES openssh-sftp-server"
 # 文件管理器
 PACKAGES="$PACKAGES luci-i18n-filemanager-zh-cn"
+# 暂时去除 quickstart 因为目前暂时没有 aarch64_cortex-a53 架构的apk
+PACKAGES="$PACKAGES -luci-i18n-quickstart-zh-cn"
 
 
 # 第三方软件包 合并
